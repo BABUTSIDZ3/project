@@ -10,14 +10,17 @@ export default function AddData() {
   const context: any = useContext(MyContext);
   return (
     <Modal
+      className="add"
       onCancel={() => {
         context.setISAdding(false);
       }}
       visible={context.isAdding}
       title="add new info"
       footer={null}
+      bodyStyle={{ background: "#10141E" }}
     >
       <Form
+      style={{padding:10}}
         onFinish={(values) => {
           const { city, street, ...rest } = values;
           rest.address = { city: values.city, street: values.street };

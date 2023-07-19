@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import { useContext } from "react";
 import { MyContext } from "../routes/Home";
-import { colums } from "../functions/functions";
+import { colums, currentColor } from "../functions/functions";
 export default function TableComp() {
   const context: any = useContext(MyContext);
   return (
@@ -12,6 +12,7 @@ export default function TableComp() {
         width: "95%",
         margin: "auto",
       }}
+      rowClassName={currentColor() == "dark" ? "active" : ""}
       scroll={{ x: true, y: "70vh" }}
       onRow={(record) => {
         return {

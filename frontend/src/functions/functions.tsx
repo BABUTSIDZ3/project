@@ -4,6 +4,13 @@ import { Button, Modal } from "antd";
 export function removeDuplicates(arr: any) {
   return [...new Set(arr)];
 }
+const defaultColor = window.matchMedia("(prefers-color-scheme:dark)").matches
+  ? "dark"
+  : "light";
+
+export const currentColor = () => {
+  return localStorage.getItem("color") || defaultColor;
+};
 
 export const axiosinstance = axios.create({
   baseURL: "https://real-pink-pigeon-yoke.cyclic.app/api/data",
@@ -31,11 +38,9 @@ export const onDeleteData = (record: record, dataSource: any) => {
       const dataForDelete: any = dataSource.filter((data: record) => {
         return data.id == record.id;
       });
-      axiosinstance
-        .delete(`/${dataForDelete[0].id}`)
-        .then(() => {
-          refreshPage();
-        });
+      axiosinstance.delete(`/${dataForDelete[0].id}`).then(() => {
+        refreshPage();
+      });
     },
   });
 };

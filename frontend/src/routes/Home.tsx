@@ -17,22 +17,22 @@ export default function Home() {
   }, []);
 
   return (
-    <MyContext.Provider
-      value={{
-        setISAdding,
-        editData,
-        setIsEditing,
-        setEditingData,
-        items,
-        editingData,
-        isEditing,
-        isAdding,
-      }}
-    >
-      <Header />
-      <TableComp />
-      <Edit />
-      <AddData />
-    </MyContext.Provider>
+          <MyContext.Provider
+            value={{
+              setISAdding,
+              editData,
+              setIsEditing,
+              setEditingData,
+              items,
+              editingData,
+              isEditing,
+              isAdding,
+            }}
+          >
+            <Header />
+            <TableComp />
+            <Edit />
+            <AddData />
+          </MyContext.Provider>
   );
 }
